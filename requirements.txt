@@ -1,0 +1,11 @@
+lxml
+scrapy
+incremental
+zope.interface
+constantly
+cssselect
+PyDispatcher
+packaging
+pyopenssl
+appdirs
+cryptography
