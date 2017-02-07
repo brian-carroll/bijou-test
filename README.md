@@ -1,3 +1,7 @@
+Bijou Scraper
+=============
+Scrapes product and category info from http://www.farah.co.uk/
+
 Installation
 ------------
 This project is written in Python 3.4 and depends on Scrapy.
