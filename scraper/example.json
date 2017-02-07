@@ -1,0 +1,220 @@
+{
+  "data": {
+    "source": null,
+    "start": null,
+    "cgid": null,
+    "srule": null,
+    "name": "THE DRAKE TROUSER",
+    "ID": "F4BS4060GP",
+    "productSet": false,
+    "bundle": false,
+    "bundled": false,
+    "productSetProduct": false,
+    "master": true,
+    "isOption": false,
+    "variant": false,
+    "masterID": "F4BS4060GP",
+    "variations": {
+      "attributes": [
+        {
+          "id": "color",
+          "name": "color",
+          "vals": [
+            {
+              "id": "032",
+              "val": "Mid Grey",
+              "images": {
+                "title": "THE DRAKE TROUSER, Mid Grey",
+                "alt": "THE DRAKE TROUSER, Mid Grey, hi-res",
+                "swatch": "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/swatch\/f4bs4060_032_sw.jpg?sw=25",
+                "large": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_032.jpg?sw=600",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_032_alt1.jpg?sw=600",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_032_alt2.jpg?sw=600"
+                ],
+                "small": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_032.jpg?sw=88",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_032_alt1.jpg?sw=88",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_032_alt2.jpg?sw=88"
+                ],
+                "hires": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_032.jpg?sw=1125",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_032_alt1.jpg?sw=1125",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_032_alt2.jpg?sw=1125"
+                ]
+              }
+            },
+            {
+              "id": "001",
+              "val": "Black",
+              "images": {
+                "title": "THE DRAKE TROUSER, Black",
+                "alt": "THE DRAKE TROUSER, Black, hi-res",
+                "swatch": "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/swatch\/f4bs4060_001_sw.jpg?sw=25",
+                "large": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001.jpg?sw=600",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt1.jpg?sw=600",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt2.jpg?sw=600"
+                ],
+                "small": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001.jpg?sw=88",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt1.jpg?sw=88",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt2.jpg?sw=88"
+                ],
+                "hires": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001.jpg?sw=1125",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt1.jpg?sw=1125",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt2.jpg?sw=1125"
+                ]
+              }
+            },
+            {
+              "id": "454",
+              "val": "Navy",
+              "images": {
+                "title": "THE DRAKE TROUSER, Navy",
+                "alt": "THE DRAKE TROUSER, Navy, hi-res",
+                "swatch": "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/swatch\/f4bs4060_454_sw.jpg?sw=25",
+                "large": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_454.jpg?sw=600",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_454_alt1.jpg?sw=600",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_454_alt2.jpg?sw=600"
+                ],
+                "small": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_454.jpg?sw=88",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_454_alt1.jpg?sw=88",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_454_alt2.jpg?sw=88"
+                ],
+                "hires": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_454.jpg?sw=1125",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_454_alt1.jpg?sw=1125",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_454_alt2.jpg?sw=1125"
+                ]
+              }
+            },
+            {
+              "id": "400",
+              "val": "Dusky Blue",
+              "images": {
+                "title": "THE DRAKE TROUSER, Dusky Blue",
+                "alt": "THE DRAKE TROUSER, Dusky Blue, hi-res",
+                "swatch": "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/swatch\/f4bs4060_400_sw.jpg?sw=25",
+                "large": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_400.jpg?sw=600",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_400_alt1.jpg?sw=600",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_400_alt2.jpg?sw=600"
+                ],
+                "small": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_400.jpg?sw=88",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_400_alt1.jpg?sw=88",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_400_alt2.jpg?sw=88"
+                ],
+                "hires": [
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_400.jpg?sw=1125",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_400_alt1.jpg?sw=1125",
+                  "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_400_alt2.jpg?sw=1125"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "waist",
+          "name": "Waist",
+          "vals": [
+            {
+              "id": "28",
+              "val": "28"
+            },
+            {
+              "id": "29",
+              "val": "29"
+            },
+            {
+              "id": "30",
+              "val": "30"
+            },
+            {
+              "id": "31",
+              "val": "31"
+            },
+            {
+              "id": "32",
+              "val": "32"
+            },
+            {
+              "id": "34",
+              "val": "34"
+            },
+            {
+              "id": "36",
+              "val": "36"
+            },
+            {
+              "id": "38",
+              "val": "38"
+            }
+          ]
+        },
+        {
+          "id": "length",
+          "name": "Length",
+          "vals": [
+            {
+              "id": "30",
+              "val": "30"
+            },
+            {
+              "id": "32",
+              "val": "32"
+            },
+            {
+              "id": "34",
+              "val": "34"
+            }
+          ]
+        }
+      ]
+    },
+    "pricing": {
+      "showStandardPrice": false,
+      "isPromoPrice": false,
+      "standard": 0,
+      "sale": 0,
+      "quantities": [
+
+      ]
+    },
+    "images": {
+      "title": "THE DRAKE TROUSER, Black",
+      "alt": "THE DRAKE TROUSER, Black, hi-res",
+      "swatch": "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/swatch\/f4bs4060_001_sw.jpg?sw=25",
+      "large": [
+        "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001.jpg?sw=600",
+        "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt1.jpg?sw=600",
+        "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt2.jpg?sw=600"
+      ],
+      "small": [
+        "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001.jpg?sw=88",
+        "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt1.jpg?sw=88",
+        "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt2.jpg?sw=88"
+      ],
+      "hires": [
+        "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001.jpg?sw=1125",
+        "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt1.jpg?sw=1125",
+        "http:\/\/www.farah.co.uk\/dw\/image\/v2\/AAGQ_PRD\/on\/demandware.static\/-\/Sites-perryellis_master_catalog\/default\/v1486496901783\/products\/hi-res\/f4bs4060_001_alt2.jpg?sw=1125"
+      ]
+    },
+    "avStatusQuantity": "1",
+    "avStatus": "IN_STOCK",
+    "inStock": true,
+    "avLevels": {
+      "IN_STOCK": 1,
+      "PREORDER": 0,
+      "BACKORDER": 0,
+      "NOT_AVAILABLE": 0
+    },
+    "ATS": 0,
+    "inStockDate": ""
+  }
+}
