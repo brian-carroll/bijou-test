@@ -2,7 +2,7 @@ import os
 import json
 from pprint import pformat
 
-from flask import request
+from flask import request, jsonify
 from . import app
 
 
@@ -19,27 +19,35 @@ def process_product(categories, data):
     '''
     return '/'.join(categories) + pformat(data).replace('\n','<br>').replace(' ', '&nbsp;')
 
-@app.route('/categories', methods=['POST', 'GET'])
+
+@app.route('/categories', methods=['GET'])
 def list_categories():
     try:
         limit = int(request.args.get('limit'))
     except:
         limit = None
+    output_format = request.args.get('format')
 
     source_dir = app.config['SCRAPER_CACHE_DIR']
-    categories = []
+    rel = len(source_dir)  # number of characters to remove to get a relative path
 
+    categories = []
     count = 0
     for dirname, dirs, files in os.walk(source_dir):
-        categories.append(dirname)
+        if dirname == source_dir:
+            continue
+        categories.append(dirname[rel:])
         count += 1
         if limit and count >= limit:
             break
 
-    output_str = ('<ul>\n<li>'
-                  + '</li>\n<li>'.join(categories)
-                  + '</li>\n</ul>')
-    return output_str
+    if output_format == 'html':
+        output_str = ('<ul>\n<li>'
+                      + '</li>\n<li>'.join(categories)
+                      + '</li>\n</ul>')
+        return output_str
+    else:
+        return jsonify(data=categories)
 
 
 @app.route('/load-data', methods=['POST', 'GET'])
