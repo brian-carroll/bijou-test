@@ -19,6 +19,28 @@ def process_product(categories, data):
     '''
     return '/'.join(categories) + pformat(data).replace('\n','<br>').replace(' ', '&nbsp;')
 
+@app.route('/categories', methods=['POST', 'GET'])
+def list_categories():
+    try:
+        limit = int(request.args.get('limit'))
+    except:
+        limit = None
+
+    source_dir = app.config['SCRAPER_CACHE_DIR']
+    categories = []
+
+    count = 0
+    for dirname, dirs, files in os.walk(source_dir):
+        categories.append(dirname)
+        count += 1
+        if limit and count >= limit:
+            break
+
+    output_str = ('<ul>\n<li>'
+                  + '</li>\n<li>'.join(categories)
+                  + '</li>\n</ul>')
+    return output_str
+
 
 @app.route('/load-data', methods=['POST', 'GET'])
 def load_data():

@@ -43,4 +43,4 @@ def close_db(error):
         g.sqlite_db.close()
 
 
-from . import views
+from .views import *
