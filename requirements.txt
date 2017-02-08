@@ -9,3 +9,8 @@ packaging
 pyopenssl
 appdirs
 cryptography
+flask
+werkzeug
+jinja2
+itsdangerous
+click
