@@ -88,7 +88,7 @@ cd ../flask
 python3 runserver.py
 
 # Endpoints:
-http://localhost:5000/categories?limit=10
-http://localhost:5000/products?limit=10
+curl http://localhost:5000/categories?limit=10
+curl http://localhost:5000/products?limit=10
 
 ```
