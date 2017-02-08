@@ -11,21 +11,28 @@ Project Plan
     - How deep do the categories go?
     - Which fields are optional and which always there?
 
-- Phase 1: Unstructured documents
+- Phase 1: Scrape unstructured data
   - [x] Get a scraper working using Scrapy
     - Save as JSON files in a directory tree (mirroring the site structure)
   - [ ] Create models based on filesystem data
   - [ ] Create endpoints using those models
 
-- Phase 2: Normalised relational data
+- Phase 2: Normalise to relational data
   - [ ] Build a schema that makes sense with the data we have
   - [ ] Convert models from filesystem to database
+
+- Phase 3: Refactor to shared models
+  - [ ] Import Flask DB models into Scrapy as a package
+    - The database model becomes the interface between the two projects.
+  - [ ] Move normalisation code into Scrapy project
+    - Perhaps Farah is a subclass that specialises the models?
+    - Other retailers will have different normalisation code
 
 
 Data to Store
 -------------
 - I'm assuming that Bijou is reselling items from multiple retailers
-  - Business context is not 100% clear from the project description
+  - Could be wrong, business context is quite brief in the project description
 - Farah website layout gives hints as to importance of each field
 - Primary fields (displayed prominently on category & search pages)
   - Image
@@ -65,3 +72,18 @@ Or just run the `install.sh` script provided.
 
 If you have a different OS, you may need to look at the
 [Scrapy installation instructions](https://doc.scrapy.org/en/latest/intro/install.html) and modify accordingly.
+
+
+Running the code
+----------------
+
+```
+source venv/bin/activate
+cd scraper
+scrapy crawl farah
+
+# Wait...
+
+cd ../flask
+python3 runserver.py
+```
