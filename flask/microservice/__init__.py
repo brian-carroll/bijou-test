@@ -1,6 +1,8 @@
 import os
 import sqlite3
 from flask import Flask, g
+from flask.json import JSONEncoder
+from .models import ProductImage
 
 # Create the application instance and configure it
 app = Flask(__name__)
@@ -11,6 +13,7 @@ app.config.update(dict(
     PASSWORD='default',
     SCRAPER_CACHE_DIR=os.path.abspath(app.root_path + '/../../scraper/data/farah')
 ))
+
 
 def connect_db():
     """Connects to the specific database."""

@@ -14,8 +14,8 @@ Project Plan
 - Phase 1: Scrape unstructured data
   - [x] Get a scraper working using Scrapy
     - Save as JSON files in a directory tree (mirroring the site structure)
-  - [ ] Create models based on filesystem data
-  - [ ] Create endpoints using those models
+  - [x] Create models based on filesystem data
+  - [x] Create endpoints using those models
 
 - Phase 2: Normalise to relational data
   - [ ] Build a schema that makes sense with the data we have
@@ -86,4 +86,9 @@ scrapy crawl farah
 
 cd ../flask
 python3 runserver.py
+
+# Endpoints:
+http://localhost:5000/categories?limit=10
+http://localhost:5000/products?limit=10
+
 ```
