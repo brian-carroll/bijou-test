@@ -18,8 +18,8 @@ Project Plan
   - [x] Create endpoints using those models
 
 - Phase 2: Normalise to relational data
-  - [ ] Build a schema that makes sense with the data we have
-  - [ ] Convert models from filesystem to database
+  - [x] Build a schema that makes sense with the data we have
+  - [x] Convert models from filesystem to database
 
 - Phase 3: Refactor to shared models
   - [ ] Import Flask DB models into Scrapy as a package
