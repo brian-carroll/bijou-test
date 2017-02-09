@@ -18,12 +18,17 @@ class Category(db.Model):
     subcategories = db.relationship("Category")
     parent = db.relationship("Category", remote_side=[id])
 
-    def serializable(self):
-        return {
+    def serializable(self, recursive=False):
+        val = {
             'id': self.id,
-            'name': self.name,
-            'subcategories': [c.serializable() for c in self.subcategories]
+            'name': self.name
         }
+        if recursive:
+            subcats = [c.serializable(recursive=True) for c in self.subcategories]
+            if subcats:
+                val['subcategories'] = subcats
+        return val
+
 
     @classmethod
     def create_hierarchy(cls, hierarchy_list):
@@ -77,7 +82,7 @@ class Product(db.Model):
             'id': self.id,
             'code': self.code,
             'name': self.name,
-            'price': self.price,
+            'price': self.price_x100,
             'categories': [c.serializable() for c in self.categories],
             'images': [i.serializable() for i in self.images]
         }
@@ -87,23 +92,29 @@ class Product(db.Model):
         if 'ID' not in j:
             raise KeyError('Product JSON has no ID field')
 
-        p = cls.query.filter(cls.code==int(j['ID'])).first()
+        code = j['ID'] # rename
+        p = cls.query.filter(cls.code==code).first()
         if p is None:
             p = cls()
             p.code = j['ID']
             db.session.add(p)
 
-        if category not in p.categories:
+        if category_obj not in p.categories:
             p.categories.append(category_obj)
 
         p.scrape_time = scrape_time
         p.name = j['name']
 
         if 'images' in j:
-            for k,v in j['images'].items():
+            existing_image_urls = [i.url for i in p.images]
+            for label,v in j['images'].items():
                 if isinstance(v, list):
-                    for i in v:
-                        p.images.append(ProductImage(k,i))
+                    for url in v:
+                        if url not in existing_image_urls:
+                            i = ProductImage(label,url)
+                            db.session.add(i)
+                            p.images.append(i)
+
         try:
             p.price_x100 = 100*round(
                 (j['pricing']['showStandardPrice'] and j['pricing']['standard'])
@@ -112,6 +123,7 @@ class Product(db.Model):
         except:
             self.price_x100 = 0
 
+        return p
 
 
 class VariationImage(db.Model):
@@ -157,14 +169,14 @@ class ProductImage(db.Model):
     size_label = db.Column(db.String(255))
     url = db.Column(db.String())
 
-    def __init__(self, resolution, url):
-        self.resolution = resolution
+    def __init__(self, size_label, url):
+        self.size_label = size_label
         self.url = url
 
     def serializable(self):
         return {
             'id': self.id,
-            'resolution': self.resolution,
+            'size_label': self.size_label,
             'url': self.url
         }
 

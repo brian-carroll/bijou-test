@@ -1,6 +1,7 @@
 import os
 import json
 from pprint import pformat
+from datetime import datetime
 
 from flask import request, jsonify
 from . import app, db
@@ -15,74 +16,25 @@ def home():
         <ul>
             <li><a href="/products"> Products </a></li>
             <li><a href="/categories"> Categories </a></li>
-            <li><a href="/load-categories"> Load categories into DB </a></li>
-            <li><a href="/load-products"> Load products into DB </a></li>
+            <li><a href="/refresh-db"> Reload Scraper data into Database </a></li>
         </ul>
     """
 
 
 @app.route('/products', methods=['GET'])
-def list_products():
+def products_endpoint():
     try:
         limit = int(request.args.get('limit'))
     except:
         limit = None
+    return list_products(limit)
 
-    source_dir = app.config['SCRAPER_CACHE_DIR']
-    rel = len(source_dir)  # number of characters to remove to get a relative path
-
-    products = []
-    count = 0
-    for dirname, dirs, files in os.walk(source_dir):
-        for filename in files:
-            fullpath = dirname + '/' + filename
-            with open(fullpath, 'r') as fp:
-                json_data = json.load(fp)
-            categories = [c for c in dirname[rel:].split('/') if c]
-            p = Product(json_data, categories)
-            products.append(p.serializable())
-            count += 1
-            if limit and count >= limit:
-                break
-        if limit and count >= limit:
-            break
-
-    return jsonify(data=products)
+def list_products(limit):
+    products = Product.query.limit(limit)
+    return jsonify([p.serializable() for p in products])
 
 
-@app.route('/categories', methods=['GET'])
-def list_categories():
-    try:
-        limit = int(request.args.get('limit'))
-    except:
-        limit = None
-
-    source_dir = app.config['SCRAPER_CACHE_DIR']
-    rel = 1+len(source_dir)  # number of characters to remove to get a relative path
-
-    categories = []
-    count = 0
-    for dirname, dirs, files in os.walk(source_dir):
-        if dirname == source_dir:
-            continue
-        categories.append(dirname[rel:].split('/'))
-        count += 1
-        if limit and count >= limit:
-            break
-
-    return jsonify(data=categories)
-
-
-@app.route('/load-categories', methods=['POST', 'GET'])
-def load_categories():
-    '''
-    - Migrate data from filesystem to DB
-    - Have something to look at for debug
-    '''
-    source_dir = app.config['SCRAPER_CACHE_DIR']
-    rel = 1+len(source_dir)  # chars to drop to get relative path
-    output_str = ''
-
+def get_root_category():
     db_cats = Category.query.all()
     root_categories = [c for c in db_cats if c.parent is None]
     if not root_categories:
@@ -93,6 +45,28 @@ def load_categories():
         root = root_categories[0]
     else:
         raise Exception('More than one root category!')
+    return root
+
+
+
+@app.route('/categories', methods=['GET'])
+def list_categories():
+    root = get_root_category()
+    return jsonify(root.serializable(recursive=True))
+
+
+@app.route('/refresh-db', methods=['POST', 'GET'])
+def refresh_db():
+    '''
+    - Migrate data from filesystem to DB
+    - Have something to look at for debug
+    '''
+    source_dir = app.config['SCRAPER_CACHE_DIR']
+    rel = 1+len(source_dir)  # chars to drop to get relative path
+    count = 0
+    products = []
+
+    root = get_root_category()
 
     for dirname, dirs, files in os.walk(source_dir):
         if dirname==source_dir:
@@ -111,42 +85,18 @@ def load_categories():
                 parent.subcategories.append(category)
             parent = category
 
-    response = jsonify(root.serializable())
-    db.session.commit()
-    return response
-
-
-
-
-@app.route('/load-products', methods=['POST', 'GET'])
-def load_products():
-    '''
-    - Migrate data from filesystem to DB
-    - Have something to look at for debug
-    '''
-    try:
-        limit = int(request.args.get('limit'))
-    except:
-        limit = None
-
-    source_dir = app.config['SCRAPER_CACHE_DIR']
-    output_str = ''
-
-    count = 0
-    for dirname, dirs, files in os.walk(source_dir):
         for filename in files:
             fullpath = os.path.join(dirname, filename)
-
-            categories = dirname.split('/')
+            scrape_time = datetime.fromtimestamp(os.path.getmtime(fullpath))
             with open(fullpath, 'r') as f:
-                data = json.load(f)
-            output_str += ('<br>'
-                           + '/'.join(categories)
-                           )
+                json_obj = json.load(f)
+            product = Product.create(json_obj, category, scrape_time)
+            products.append(product)
             count += 1
-            if limit and count >= limit:
-                break
-        if limit and count >= limit:
-            break
 
-    return output_str
+    db.session.commit()
+
+    return jsonify({
+        'categories': get_root_category().serializable(recursive=True),
+        'products': [p.serializable() for p in Product.query.all()]
+    })
