@@ -4,7 +4,7 @@ from pprint import pformat
 
 from flask import request, jsonify
 from . import app, db
-from .models import Product, ProductImage
+from .models import *
 
 
 
@@ -13,9 +13,10 @@ def home():
     return """
         <h1>Bijou Scraper</h1>
         <ul>
-            <li><a href="/products">    Products                </a></li>
-            <li><a href="/categories">  Categories              </a></li>
-            <li><a href="/files-to-db"> Transfer files to DB    </a></li>
+            <li><a href="/products"> Products </a></li>
+            <li><a href="/categories"> Categories </a></li>
+            <li><a href="/load-categories"> Load categories into DB </a></li>
+            <li><a href="/load-products"> Load products into DB </a></li>
         </ul>
     """
 
@@ -72,9 +73,53 @@ def list_categories():
     return jsonify(data=categories)
 
 
+@app.route('/load-categories', methods=['POST', 'GET'])
+def load_categories():
+    '''
+    - Migrate data from filesystem to DB
+    - Have something to look at for debug
+    '''
+    source_dir = app.config['SCRAPER_CACHE_DIR']
+    rel = 1+len(source_dir)  # chars to drop to get relative path
+    output_str = ''
 
-@app.route('/files-to-db', methods=['POST', 'GET'])
-def load_files_into_db():
+    db_cats = Category.query.all()
+    root_categories = [c for c in db_cats if c.parent is None]
+    if not root_categories:
+        root = Category()
+        root.name = 'farah'
+        db.session.add(root)
+    elif len(root_categories) == 1:
+        root = root_categories[0]
+    else:
+        raise Exception('More than one root category!')
+
+    for dirname, dirs, files in os.walk(source_dir):
+        if dirname==source_dir:
+            continue
+        parent = root
+        hierarchy = dirname[rel:].split('/')
+        for name in hierarchy:
+            db_matches = [c for c in parent.subcategories if c.name==name]
+            if db_matches:
+                # already exists
+                category = db_matches[0]
+            else:
+                # need to create
+                category = Category()
+                category.name = name
+                parent.subcategories.append(category)
+            parent = category
+
+    response = jsonify(root.serializable())
+    db.session.commit()
+    return response
+
+
+
+
+@app.route('/load-products', methods=['POST', 'GET'])
+def load_products():
     '''
     - Migrate data from filesystem to DB
     - Have something to look at for debug

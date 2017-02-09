@@ -15,14 +15,14 @@ class Category(db.Model):
     parent_id = db.Column(db.Integer(), db.ForeignKey('categories.id'))
     name = db.Column(db.String(255))
 
-    children = db.relationship("Category")
+    subcategories = db.relationship("Category")
     parent = db.relationship("Category", remote_side=[id])
 
     def serializable(self):
         return {
             'id': self.id,
-            'parent_id': self.parent_id,
             'name': self.name,
+            'subcategories': [c.serializable() for c in self.subcategories]
         }
 
     @classmethod

@@ -20,9 +20,6 @@ app.config.update(dict(
     SQLALCHEMY_ECHO=False
 ))
 
-print(db_path)
-print(app.config['SQLALCHEMY_DATABASE_URI'])
-
 
 # Initialize database
 # sqlite3.connect(app.config['DATABASE'])
