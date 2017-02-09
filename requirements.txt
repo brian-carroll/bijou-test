@@ -14,3 +14,4 @@ werkzeug
 jinja2
 itsdangerous
 click
+Flask-SQLAlchemy

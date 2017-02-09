@@ -3,14 +3,21 @@ import json
 from pprint import pformat
 
 from flask import request, jsonify
-from . import app
+from . import app, db
 from .models import Product, ProductImage
 
 
 
 @app.route('/', methods=['GET'])
 def home():
-    return "Server is running"
+    return """
+        <h1>Bijou Scraper</h1>
+        <ul>
+            <li><a href="/products">    Products                </a></li>
+            <li><a href="/categories">  Categories              </a></li>
+            <li><a href="/files-to-db"> Transfer files to DB    </a></li>
+        </ul>
+    """
 
 
 @app.route('/products', methods=['GET'])
@@ -65,36 +72,36 @@ def list_categories():
     return jsonify(data=categories)
 
 
-# @app.route('/files-to-db', methods=['POST', 'GET'])
-# def load_files_into_db():
-#     '''
-#     - Migrate data from filesystem to DB
-#     - Have something to look at for debug
-#     '''
-#     try:
-#         limit = int(request.args.get('limit'))
-#     except:
-#         limit = None
-#
-#     source_dir = app.config['SCRAPER_CACHE_DIR']
-#     output_str = ''
-#
-#     count = 0
-#     for dirname, dirs, files in os.walk(source_dir):
-#         for filename in files:
-#             fullpath = os.path.join(dirname, filename)
-#
-#             categories = dirname.split('/')
-#             with open(fullpath, 'r') as f:
-#                 data = json.load(f)
-#             output_str += ('<br>'
-#                            + '/'.join(categories)
-#                            + pformat(data).replace('\n','<br>').replace(' ', '&nbsp;')
-#                            )
-#             count += 1
-#             if limit and count >= limit:
-#                 break
-#         if limit and count >= limit:
-#             break
-#
-#     return output_str
+
+@app.route('/files-to-db', methods=['POST', 'GET'])
+def load_files_into_db():
+    '''
+    - Migrate data from filesystem to DB
+    - Have something to look at for debug
+    '''
+    try:
+        limit = int(request.args.get('limit'))
+    except:
+        limit = None
+
+    source_dir = app.config['SCRAPER_CACHE_DIR']
+    output_str = ''
+
+    count = 0
+    for dirname, dirs, files in os.walk(source_dir):
+        for filename in files:
+            fullpath = os.path.join(dirname, filename)
+
+            categories = dirname.split('/')
+            with open(fullpath, 'r') as f:
+                data = json.load(f)
+            output_str += ('<br>'
+                           + '/'.join(categories)
+                           )
+            count += 1
+            if limit and count >= limit:
+                break
+        if limit and count >= limit:
+            break
+
+    return output_str
